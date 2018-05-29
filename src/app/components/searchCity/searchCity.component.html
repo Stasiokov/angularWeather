@@ -1,0 +1,6 @@
+<input type="text"
+       placeholder="Enter city"
+       #inputText
+       (keyup.enter)="findCity(inputText.value)"
+       [class.errorFind]="errorFind"
+>

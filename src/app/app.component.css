@@ -1,0 +1,17 @@
+.container{
+  width: 1080px;
+  margin: 0 auto;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #e3e3e3;
+  font-size: 20px;
+  height: 40px;
+}
+search-city{
+  margin-right:10px;
+}
+

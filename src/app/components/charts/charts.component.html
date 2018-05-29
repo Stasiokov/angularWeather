@@ -1,0 +1,19 @@
+<div *ngIf="loadData.city">
+  <div class="heading">Forecast 5 day</div>
+  <div>
+    <button [class.active]="activeBtn[0]" (click)="onWind()">Wind</button>
+    <button [class.active]="activeBtn[1]" (click)="onTemperature()">Temperature</button>
+    <button [class.active]="activeBtn[2]" (click)="onPresure()">Presure</button>
+    <button [class.active]="activeBtn[3]" (click)="onHumidity()">Humidity</button>
+    <div style="display: block;">
+      <canvas baseChart width="400px"
+              [datasets]="chart.barChartData"
+              [labels]="chart.barChartLabels"
+              [options]="chart.barChartOptions"
+              [legend]="chart.barChartLegend"
+              [chartType]="chart.barChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+.heading{
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+button{
+  background: white;
+  border: 2px solid #e3e3e3;
+  padding: 4px 8px;
+}
+.active{
+  background: #e3e3e3;
+}
+canvas{
+  background: #e3e3e3;
+  width: 100%;
+}
