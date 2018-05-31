@@ -2,14 +2,14 @@
   <div class="left">{{todayDate}}</div>
   <div class="center">
     {{message}}
-    <div *ngIf="todayWeather.name">
+    <div *ngIf="todayWeather">
       <p class="country">{{todayWeather.name}},{{todayWeather.sys.country}}</p>
       <p class="temp">{{roundTemp}} &deg;C</p>
       <p>{{todayWeather.weather[0].main}}</p>
     </div>
   </div>
 </div>
-<div class="footer" *ngIf="todayWeather.name">
+<div class="footer" *ngIf="todayWeather">
   <div><b>Pressure:</b> {{todayWeather.main.pressure}}</div>
   <div><b>Humidity:</b> {{todayWeather.main.humidity}}</div>
   <div><b>Wind speed:</b> {{todayWeather.wind.speed}}&nbsp;m/s</div>

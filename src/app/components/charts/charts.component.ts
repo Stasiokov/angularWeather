@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {InformationCity} from "../../app.component";
+import {InfoFiveDays} from "../../services/findWeather.service";
 
 @Component({
   selector: 'charts',
@@ -8,19 +8,19 @@ import {InformationCity} from "../../app.component";
 })
 export class ChartsComponent {
 
-  loadData: any;
+  loadData: InfoFiveDays;
   activeBtn = [false, false, false, false];
 
   @Input()
-  set weatherData(data: InformationCity) {
+  set weatherData(data: InfoFiveDays) {
     this.loadData = data;
-    if(this.loadData.city){
+    if (this.loadData) {
       this.onTemperature();
     }
   };
 
   chart = {
-    barChartLabels:[],
+    barChartLabels: [],
     barChartOptions: {
       scaleShowVerticalLines: false,
       responsive: true
@@ -34,25 +34,25 @@ export class ChartsComponent {
 
   public onWind(): void {
     this.showInformation(this.loadData.list.map((elem) => {
-      return {elem:elem.wind.speed,dt:elem.dt_txt}
+      return {elem: elem.wind.speed, dt: elem.dt_txt}
     }), "Wind", 0)
   }
 
   public onTemperature(): void {
     this.showInformation(this.loadData.list.map((elem) => {
-      return {elem:elem.main.temp,dt:elem.dt_txt}
+      return {elem: elem.main.temp, dt: elem.dt_txt}
     }), "Temperature", 1)
   }
 
   public onPresure(): void {
     this.showInformation(this.loadData.list.map((elem) => {
-      return {elem:elem.main.pressure,dt:elem.dt_txt}
+      return {elem: elem.main.pressure, dt: elem.dt_txt}
     }), "Presure", 2)
   }
 
   public onHumidity(): void {
     this.showInformation(this.loadData.list.map((elem) => {
-      return {elem:elem.main.humidity,dt:elem.dt_txt}
+      return {elem: elem.main.humidity, dt: elem.dt_txt}
     }), "Humidity", 3)
   }
 
@@ -64,14 +64,15 @@ export class ChartsComponent {
     let _barChartLabels = [];
     for (let i = 0; i < list.length; i++) {
       _barChartData.data[i] = list[i].elem;
-      _barChartLabels.push(list[i].dt.slice(8,16))
+      _barChartLabels.push(list[i].dt.slice(8, 16))
     }
-    this.loadchart(_barChartLabels,_barChartData.data);
+    this.loadchart(_barChartLabels, _barChartData.data);
     this.activeBtn = [false, false, false, false];
     this.activeBtn[num] = true;
   }
-  private loadchart(arr,arr2): void {
-    this.chart.barChartLabels=arr;
+
+  private loadchart(arr, arr2): void {
+    this.chart.barChartLabels = arr;
     this.chart.barChartData[0].data = arr2;
   }
 

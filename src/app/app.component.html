@@ -4,9 +4,9 @@
     <search-city (eventEmitter)="findCity($event)"></search-city>
   </div>
   <div>
-    <today [todayNameCity]="nameCity"></today>
+    <today *ngIf="nameCity" [todayNameCity]="nameCity"></today>
   </div>
   <div>
-    <charts [weatherData]="information"></charts>
+    <charts *ngIf="fiveDay" [weatherData]="fiveDay"></charts>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {SearchCityComponent} from './components/searchCity/searchCity.component';
 import {TodayComponent} from './components/today/today.component';
 import {ChartsComponent} from './components/charts/charts.component';
+import {FindWeatherService} from "./services/findWeather.service";
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import {ChartsComponent} from './components/charts/charts.component';
     HttpClientModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [FindWeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
